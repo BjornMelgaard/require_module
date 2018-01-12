@@ -15,7 +15,13 @@ module RequireModule
     content = read_rb(with_ext)
 
     if cache
-      constant_name = without_ext.gsub(%r{[/\.]}, '_').split('_').map(&:capitalize).join.to_sym
+      constant_name =
+        without_ext
+        .split(/[^a-zA-Z]/)
+        .map(&:capitalize)
+        .join
+        .to_sym
+
       begin
         Object.const_get(constant_name)
       rescue NameError
