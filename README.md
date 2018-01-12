@@ -1,5 +1,7 @@
 # require_module
 
+[![Build Status](https://travis-ci.org/BjornMelgaard/require_module.svg?branch=master)](https://travis-ci.org/BjornMelgaard/require_module)
+
 Evaluates file content inside Module.new, with cache
 
 # API
