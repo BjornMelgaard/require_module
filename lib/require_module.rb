@@ -12,8 +12,6 @@ module RequireModule
     with_ext    = add_ext(fullpath)
     without_ext = rem_ext(fullpath)
 
-    content = read_rb(with_ext)
-
     if cache
       constant_name =
         without_ext
@@ -25,20 +23,22 @@ module RequireModule
       begin
         Object.const_get(constant_name)
       rescue NameError
-        mod = gen_mod(content)
+        mod = gen_mod(with_ext)
         Object.const_set(constant_name, mod)
         mod
       end
     else
-      gen_mod(content)
+      gen_mod(with_ext)
     end
   end
 
   private
 
-  def gen_mod(content)
+  def gen_mod(fullpath)
+    content = read_rb(fullpath)
+
     Module.new.tap do |mod|
-      mod.module_eval(content)
+      mod.module_eval(content, fullpath, 1)
     end
   end
 
