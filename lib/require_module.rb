@@ -1,4 +1,15 @@
 module RequireModule
+  # Similar to "require_module", but path is relative to file, where function is executed
+  #
+  # ==== Attributes
+  #
+  # * +path+ - Relative path to .rb file, .rb extension is optional
+  #
+  # ==== Options
+  #
+  # * +:cache+ - Default - true.
+  # If false - creates new Module object with unique name.
+  # If true - creates new or returns already created Module with name, based on path to file
   def require_module_relative(path, **options)
     caller_filepath = caller_locations(1..1).first.absolute_path
     caller_dir = File.dirname(caller_filepath)
@@ -8,6 +19,22 @@ module RequireModule
     require_module(fullpath, **options)
   end
 
+  # Evaluates file content inside Module.new and returns new module
+  #
+  # ==== Attributes
+  #
+  # * +fullpath+ - Absolute path to .rb file, .rb extension is optional
+  #
+  # ==== Options
+  #
+  # * +:cache+ - Default - true.
+  # If false - creates new Module object with unique name.
+  # If true - creates new or returns already created Module with name, based on path to file
+  #
+  # ==== Examples
+  #
+  #    require_module('/home/user/rubyapp/lib', cache: false) # returns #<Module:0000012312>
+  #    require_module('/home/user/rubyapp/lib') # returns :HomeUserRubyappLib
   def require_module(fullpath, cache: true)
     with_ext    = add_ext(fullpath)
     without_ext = rem_ext(fullpath)
