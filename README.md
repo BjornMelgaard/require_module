@@ -5,12 +5,22 @@
 Evaluates file content inside Module.new, with cache
 
 # API
-`require_module(fullpath)`
 
-`require_module_relative(relative_path)`
+## require_module(fullpath)
 
+Evaluates file content inside Module.new and returns new module
+
+```rb
+require_module('/home/user/rubyapp/lib', cache: false) # returns #<Module:0000012312>
+require_module('/home/user/rubyapp/lib') # returns :HomeUserRubyappLib
+```
+
+## require_module_relative(relative_path)
+
+Similar to "require_module", but path is relative to file, where function is executed
 
 Check `lib/require_module.rb` for more
+
 
 # Example
 If you don't want you modules to intersect, they should have unique name.
