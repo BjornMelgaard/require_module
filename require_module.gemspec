@@ -15,9 +15,4 @@ Gem::Specification.new do |s|
   s.has_rdoc         = true
   s.rdoc_options     = %w[--title require_all --main README.md --line-numbers]
   s.extra_rdoc_files = ['LICENSE', 'README.md']
-
-  s.add_development_dependency 'pry'
-  s.add_development_dependency 'rake'
-  s.add_development_dependency 'rspec'
-  s.add_development_dependency 'simplecov'
 end
