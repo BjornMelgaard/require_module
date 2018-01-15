@@ -9,7 +9,13 @@ Evaluates file content inside Module.new, with cache
 
 `require_module_relative(relative_path)`
 
+
+Check `lib/require_module.rb` for more
+
 # Example
+If you don't want you modules to intersect, they should have unique name.
+I was tired of coming up with new names, so created this gem.
+
 Instead of
 
 ```rb
