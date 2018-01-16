@@ -1,5 +1,11 @@
 source 'https://rubygems.org'
 
 gemspec
-gem 'coveralls', require: false
-gem 'pry', require: false
+
+group :test do
+  gem 'coveralls'
+  gem 'pry'
+  gem 'rake'
+  gem 'rspec'
+  gem 'simplecov'
+end
