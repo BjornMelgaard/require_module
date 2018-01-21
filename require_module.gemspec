@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name    = 'require_module'
-  s.version = '0.0.1'
+  s.version = '0.0.2'
   s.authors = ['Sergey Homa']
   s.email   = 'melgaardbjorn@gmail.com'
   s.summary = 'Evaluates file content inside Module.new, with cache'

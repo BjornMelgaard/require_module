@@ -16,8 +16,9 @@ module RequireModule
   #    require_module('/home/user/rubyapp/lib', cache: false) # returns #<Module:0000012312>
   #    require_module('/home/user/rubyapp/lib') # returns :HomeUserRubyappLib
   def require_module(fullpath, cache: true)
-    with_ext    = add_ext(fullpath)
-    without_ext = rem_ext(fullpath)
+    path = fullpath.to_s
+    with_ext    = add_ext(path)
+    without_ext = rem_ext(path)
 
     if cache
       constant_name =
