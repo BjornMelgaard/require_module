@@ -1,8 +1,14 @@
 # require_module
 
 [![Build Status](https://travis-ci.org/BjornMelgaard/require_module.svg?branch=master)](https://travis-ci.org/BjornMelgaard/require_module)
+[![Gem Version](https://badge.fury.io/rb/require_module.svg)](https://badge.fury.io/rb/require_module)
 
 Evaluates file content inside Module.new, with cache
+
+# Install
+```rb
+gem 'require_module'
+```
 
 # API
 
